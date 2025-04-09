@@ -2,3 +2,5 @@ fastapi
 httpx
 pytest
 uvicorn
+pytest-asyncio
+pytest-html
