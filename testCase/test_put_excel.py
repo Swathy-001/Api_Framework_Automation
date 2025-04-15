@@ -16,14 +16,12 @@ def read_excel_data(file_path):
         for row in sheet.iter_rows(min_row=2, values_only=True)
         if row[2] == 200
     ]
-      
-    # return data
- 
+
 # Get data from the Excel file
-test_data = read_excel_data('Test_Data.xlsx')
+file_path = read_excel_data('Test_Data.xlsx')
 
 # Test Case for PUT request
-@pytest.mark.parametrize("data", test_data)
+@pytest.mark.parametrize("data", file_path)
 def test_put_request(data):
     user_id = 2 
     response = requests.put(f"{BASE_URL}/users/{user_id}", json={"name": data["name"], "job": data["job"]})
